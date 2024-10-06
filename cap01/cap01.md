@@ -70,12 +70,14 @@
   * 1993, FreeBSD: adaptação do 386/BSD que enfatizou performance, e foi o mais
     difundido dentre todos os BSD.
   * 1993, 4.4BSD
+  * 1993: Novell compra a USL da AT&T!
   * 1994: acordo entre a USL e a Univ. da Califórnia a respeito do código do
     BSD: a universidade removeu 3 arquivos do código do BSD Net/2, fez algumas
     mudanças menores em outros arquivos e incluiu avisos de copyright da AT&T em
     uns 70 outros arquivos. Em troca poderia continuar distribuindo
     comercialmente.
   * 1994, 4.4BSD-Lite: foi a versão após o acordo com a AT&T.
+  * 1994: Novell transfere os direitos do UNIX para o X/Open Company
   * 1995, 4.4BSD-Lite Release 2 foi lançado; FreeBSD e NetBSD também alteraram a
     base do código para o 4.4BSD-Lite, tirando o BSD Net/2 de sua base (e assim,
     também tirando o código da AT&T)
@@ -165,3 +167,100 @@ interface padrão para o UNIX, facilitando a portabilidade de aplicações.
   * 2999, POSIX.1d (POSIX 1003.1d): extensões adicionais para realtime
 * 1992, POSIX.2: padronizou o shell e diversos utilitários UNIX, incluindo a
   interface de linha de comando para o compilador C.
+
+
+### 1.3.3 X/Open Company e o The Open Group
+
+Os padrões POSIX eram proprietários do IEEE. Surgiu então o X/Open Company, um
+consórcio internacional de fornecedores que se uniram para produzir um conjunto
+de padrões abertos para os sistemas UNIX. Surgiu então o X/Open Portability
+Guide, que eram baseados nos POSIX:
+
+* 1989, XPG3
+* 1992, XPG4
+* 1994, XPG4 Release 2
+* 1994, Novell transfere os direitos do UNIX para o X/Open Company
+* 1995: Surge a Single UNIX Specification (SUSv1), também chamado de
+  UNIX 95. Esse padrão era a junção de:
+  * XPG4 Release 2
+  * X/Open Curses Issue 4 Release 2
+  * X/Open Networking Services (XNS) Issue 4
+* 1996: a X/Open Company se funde com a Open Software Foundation (OSF) e forma o
+  The Open Group. Praticamente todas as organizações envolvidas como UNIX agora
+  é membro do The Open Group.
+* 1997: SUSv2 ou UNIX98 ou XPG 5.
+
+
+### 1.3.4 SUSv3 e POSIX.1-2001
+
+Em 1999 o The Open Group, e IEEE e o ISO se juntaram para consolidar os padrões
+POSIX e o SUS. Isso resultou:
+
+* 2001: POSIX 1003.1-2001 / SUSv3: substituiu o SUSv2, o POSIX.1, o POSIX.2 e
+  alguns outros padrões POSIX.
+
+Como o POSIX 1003.1-2001 / SUSv3 era a consolidação dos padrões POSIX e SUS, foi
+estabelecido 2 níveis de conformidade:
+
+* Conformidade POSIX: nível "básico"
+* Conformidade X/Open: deveria ter a conformidade POSIX e, além disso, várias
+  outras coisas que eram opcionais no POSIX. Sistemas UNIX certificados aqui
+  eram chamados de UNIX03. As coisas adicionais exigidas eram chamadas de XSI
+  Extensions (threads, resource limits, pseudoterminais, IPC, etc).
+
+Apesar de muito sólido, o SUSv3 (POSIX 1003.1-2001) tinha tres áreas "nebulosas"
+que comprometem a portabilidade:
+
+* Interfaces não especificadas: não eram interfaces definidas em nada, mas que
+  eram citadas em notas ou outros documentos
+* Interfaces fracamente especificadas: eram interfaces definidas e incluídas no
+  padrão, mas que foram deixadas sem maiores especificações (geralmente porque
+  não se chegou a um consenso sobre padronização)
+* Interfaces legadas: eram mantidas para compatibilidade com versões antigas,
+  mas seu uso deve ser desencorajado.
+
+
+### 1.3.5 SUSv4 e POSIX.1-2008
+
+Em 2008 houve uma revisão dos padrões combinados POSIX e SUS, e lançou-se o
+SUSv4 (POSIX.1-2008). Também tinha dois níveis:
+
+* Conformidade POSIX
+* Conformidade X/Open System Interface (XSI).
+
+
+### 1.3.6 UNIX Standards Timeline
+
+A padronização do UNIX se deu de forma complexa, com uma infinidade de padrões
+diferentes, por grupos diferentes e por vendedores diferentes. A padronização
+dos padrões de rede foi mais complexa ainda.
+
+
+### 1.3.7 Padrões de implementações
+
+Além de todos os padrões C, POSIX e SUS citados, também existem os padrões
+definidos pelos próprios criadores/fornecedores de UNIX. Os dois mais
+importantes são:
+
+* Padrões do BSD (4.4BSD)
+* Padrões do System V Release 4 (SVR4)
+
+
+### 1.3.8 Padrões Linux
+
+O Linux tenta ser conforme à diversos padrões UNIX, especialmente o POSIX e o
+SUS. Como nenhum Linux foi certificado pelo The Open Group, nenhum Linux leva a
+marca "UNIX" do The Open Group, principalmente por questões de tempo e
+financeiras. Mesmo assim, como ele realmente é praticamente conforme com os
+vários padrões UNIX existentes e, por isso, está dominando na área UNIX. Como há
+diferentes fornecedores Linux, surgiu o padrão Linux Standard Base (LSB), para
+garantir compatibilidade entre as várias distribuições Linux, mas faz isso
+através da portabilidade binária.
+
+* POSIX: portabilidade de código fonte: nós podemos escrever um programa C e
+  então compilar e rodar com sucesso em qualquer sistema conforme POSIX; e
+* LSB: portabilidade binária: nós podemos compilar o programa para uma
+  determinada plataforma e então rodar esse programa binário em qualquer
+  implementação conforme LSB rodando com a mesma plataforma (hardware). Esse
+  tipo de portabilidade é muito mais exigente, mas fundamental para a
+  viabilidade comercial de fornecedores independentes de software para Linux.
